@@ -3,29 +3,70 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Ortalyarts" />
+  <meta name="description" 0content="Officelite coming soon site" />
+  <meta name="keywords" content="Officelite, collaboration, platform, interface" />
+  <meta property="og:title" content="Maker pre-launch" />
+  <meta property="og:description" content="Frontend Mentor | Officelite coming soon site" />
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
   <title>Frontend Mentor | Officelite coming soon site</title>
 </head>
-<body> 
-  A simple solution to complex tasks is coming soon
+<body>
+  <div class="main-container">
+    <header>
+      <div class="logo">
+        <a href="#" aria-label="Officelite homepage">
+          <img src="./assets/shared/logo.svg" alt="Officelite logo">
+        </a>
+      </div>
+    </header>
 
-  Say goodbye to inefficient juggling of multiple apps, teams, and projects. Officelite is the new 
-  collaboration platform built with an intuitive interface to improve productivity.
+    <main>
+      <section class="hero">
+        <div class="hero-text bodyM">
+          <h1 class="headingL">A simple solution to 
+            complex tasks is coming soon</h1>
+          <p>Say goodbye to inefficient juggling of multiple apps, 
+            teams, and projects. Officelite is the new 
+            collaboration platform built with an intuitive interface 
+            to improve productivity.</p>
+          <a href="./sign-up.html">Get Started</a>  
+        </div>
+        <img src="./assets/home/illustration-charts.svg" alt="Illustration of charts" class="hero-img" aria-hidden="true" width="475" height="531">
+      </section>
 
-  Get Started
+      <section class="pricing bodyS" aria-label="Our prices">
+        <ul class="price-options-holder">
+          <li class="price-option bodyM">
+            <div class="price-option-desc">
+              <h2 class="headingM">Basic
+                <soan class="headingXL">Free</soan>
+              </h2>
+              <p>Up to 5 users for free</p>
+            </div>
 
-  Basic
-  Free
-  Up to 5 users for free
-  Basic document collaboration
-  2 gb storage
-  Great security and support
-  Try for Free
+            <ul class="features">
+              <li>Basic document collaboration</li>
+              <li>2 gb storage</li>
+              <li>Great security and support</li>
+            </ul>
+            button,<button class="btn-light">Try for Free</button>
+          </li>
 
-  Pro
-  $9.99
-  Per user, billed monthly
+          <li class="price-option bodyM">
+            <div class="price-option-desc">
+              <h2 class="headingM">Pro
+                <span class="headingXL">$9.99</span>
+              </h2>
+              <p>Per user, billed monthly</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </main>
+  </div>
+    
   All essential integrations
   50 gb storage
   More control and insights
