@@ -1,0 +1,82 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body, h1, h2, h3, h4, p, figure, blockquote, dl, dd, ul {
+  margin: 0;
+}
+html {
+    scroll-behavior: smooth;
+  }
+  /* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+img {
+  vertical-align: middle;
+}
+/* General STYLE */
+:root {
+
+--color1:rgb(81, 117, 255);
+--color1b:rgba(81, 117, 255, 15.2%);
+--color1c:rgba(81, 117, 255, 25%);
+--color2:rgb(130, 156, 255);
+--color3:rgb(51, 57, 80);
+--color4: rgb(37, 41, 58);
+--color5:rgb(116, 123, 149);
+--color5b:rgb(116, 123, 149, 50%);
+--color6:rgb(240, 91, 91); 
+--color7:white;
+--color7b:rgba(255,255,255,50%);
+--color8:rgb(250,250,250);
+
+--shadow1:0 1.563rem 1.563rem -0.625rem rgba(63,91,194,25%);
+--shadow2:0 1.563rem 1.563rem -0.625rem rgba(75,92,191544,75%);
+
+--sansserif: 'KumbhSans', sans-serif;
+}
+
+@font-face {
+    font-family: 'KumbhSans';
+    src: url('./assets/fonts/KumbhSans-Regular.woff2') format('woff2'),
+         url('./assets/fonts/KumbhSans-Regular.woff') format('woff');
+    font-weight: 400;
+    font-display: swap; 
+  }
+  @font-face {
+    font-family: 'KumbhSans';
+    src: url('./assets/fonts/KumbhSans-Bold.woff2') format('woff2'),
+         url('./assets/fonts/KumbhSans-Bold.woff') format('woff');
+    font-weight: 700;
+    font-display: swap; 
+  }
+  h1, h2, h3, ul {
+    padding:0;
+  }
+  .hide {
+    display:none;
+  }
+  .screen-reader-only {
+    position:absolute;
+    display:inline-block;
+    height:1px;
+    width:1px;
+    /* overflow: hidden; */
+    clip: rect(1px 1px 1px 1px); /* IE 7+ only support clip without commas */
+    clip: rect(1px, 1px, 1px, 1px); /* All other browsers */
+  }
+  
+  .headingXL {
+    font-size: 3.5rem;
+    line-height: 4rem;
+    font-weight: 700;
+    color: var(--color3);
+  }
+
+  
