@@ -75,3 +75,126 @@ body.sign-up {
     background-position: lrgy -30rem top -2rem;
 }
 
+.hero {
+  grid-template-columns: none;
+}
+
+body.sign-up .countdown-holder {
+  width: min(28rem 100%);
+}
+
+body.sign-up .countdown-number {
+  background: var(--color1b);
+}
+
+body.sign-up .countdown-number .headingL {
+  color: var(--color1);
+}
+
+.sign-up-coming-soon h3 {
+  margin: 3rem 0 1rem 0;
+  color: var(--color4);
+  text-align: left;
+}
+
+.sign-up-coming-soon h3 span {
+  color: var(--color1);
+}
+
+/* Form */
+.sign-up-form {
+  max-width: 27.813rem;
+  padding: 0 2.688rem 1.5rem 2.688rem;
+  border-radius: 0.813rem;
+  background: var(--color7);
+  box-shadow: 0 3.125rem 3.125rem -1.5625rem rgba(75, 92, 154, 25%);
+}
+
+#form {
+  display: grid;
+  gap: 1rem;
+  align-items: start;
+  msrgin-top: 2.625rem;
+  position: relative;
+}
+
+input {
+  width: 100%;
+  background: var(--color7);
+  color: var(--color3);
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-bottom: 1px solid var(--color5b);
+}
+
+::placeholder {
+  color: var(--color6c);
+}
+
+#announcement {
+  /* opacity: 0; */ /* Don't use opacity:0 - screen reader might ignore this object! */
+}
+/* label {
+  display: block;
+  padding: .7rem .8rem;
+  width: 65%;
+  margin: 0 auto;
+  text-align: left;
+  font-size: .75rem;
+} */
+
+.select-holder {
+  position: relative;
+}
+
+button[role="combobox"] {
+  border: none;
+  border-bottom: 1px solid var(--color5b);
+}
+
+button[role="combobox"],
+ul[role="listbox"] {
+  display: block;
+  padding: .7rem .8rem;
+  width: 100%;
+  margin: 0 auto;
+  background: #fff;
+  font-size: 1rem;
+  color: var(--color3);
+  font-weight: 400;
+  cursor: pointer;
+}
+
+button[role="combobox"] {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+&::before {
+  content: "";
+  background: url("../assets/sign-up/icon-arrow-down.svg") no-repeat center;
+  width: .6875rem;
+  height: .4375rem;
+  display: inline-block;
+  vertical-align: middle;
+  position: absolute;
+  right: .8rem;
+  transition: transform .3s ease-in;
+}
+
+&:focus-visible {
+  outline: none;
+  box-shadow: 0 0 .3125rem .125rem var(--color1b) inset;
+}
+
+
+
+
+
+
+
+
