@@ -114,8 +114,7 @@ body.sign-up .countdown-number .headingL {
   display: grid;
   gap: 1rem;
   align-items: start;
-  msrgin-top: 2.625rem;
-  position: relative;
+  margin-top: 2.625rem;  
 }
 
 input {
@@ -133,9 +132,12 @@ input {
   color: var(--color6c);
 }
 
-#announcement {
-  /* opacity: 0; */ /* Don't use opacity:0 - screen reader might ignore this object! */
+/* Custom Select Element */
+#form {
+  /* margin: 1.25rem 0; */
+  position: relative;
 }
+
 /* label {
   display: block;
   padding: .7rem .8rem;
@@ -172,29 +174,175 @@ button[role="combobox"] {
   justify-content: space-between;
   align-items: center;
   position: relative;
+
+  &::before {
+    content: "";
+    background: url("../assets/sign-up/icon-arrow-down.svg") no-repeat center;
+    width: .6875rem;
+    height: .4375rem;
+    display: inline-block;
+    vertical-align: middle;
+    position: absolute;
+    right: .8rem;
+    transition: transform .3s ease-in;
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 .3125rem .125rem var(--color1b) inset;
+  }
 }
 
-&::before {
-  content: "";
-  background: url("../assets/sign-up/icon-arrow-down.svg") no-repeat center;
-  width: .6875rem;
-  height: .4375rem;
-  display: inline-block;
-  vertical-align: middle;
+ul[role="listbox"] {
   position: absolute;
-  right: .8rem;
-  transition: transform .3s ease-in;
+  left: 0;
+  right: 0;
+  top: 2.9rem;
+  max-height: 10rem;
+  overflow-y: auto;
+  list-style-type: none;
+  padding: 0;
+  margin-top: .1rem;
+  border: 1px solid var(--color1b);
+  box-shadow: var(--shadow2);
+  border-radius: 0.5rem;
+  opacity: 0;
+  transform: scale(1,0);
+  transform-origin: top left;
+  transition: all .3s ease-in;
+  pointer-events: none;
+  z-index: 2;
+  &.active {
+    opacity: 1;
+    transform: scale(1,1);
+    pointer-events: auto;
+  }
+  li {
+    padding: 0.6rem .5rem;
+    border-bottom: 1px solid var(--color5b);
+    cursor: pointer;
+    transition: all .3s ease-in;
+    position: relative;
+    &::before {
+      content: "";
+      background: url("../assets/sign-up/icon-check.svg") no-repeat center;
+      width: 1rem;
+      height: .75rem;
+      display: inline-block;
+      right: .8rem;
+      opacity: 0;
+      transition: opacity .3s ease-in;
+    }
+    &:hover, &:current {
+      background: rgba(63, 91, 194, 5%);
+    }
+
+    &:active {
+      background: rgba(63, 91, 194, 10%);
+      color: var(--color1);
+    }
+
+    &:active::before {
+      opacity: 1;
+    }
+  }
+  li:last-child {
+    border-bottom: none;
+  }
+}
+button[aria-expanded="true"] {
+  &::before {
+    transform: rotate(180deg);
+  }
 }
 
-&:focus-visible {
-  outline: none;
-  box-shadow: 0 0 .3125rem .125rem var(--color1b) inset;
+.btn {
+  margin-top: 1rem;
+}
+/* Custom Select Element End */
+
+/* Invalid Message */
+.input-invalid {
+  color: var(--color6);
+  border-bottom: .0625rem solid var(--color6);
+  background: url("../assets/sifn-up/icon-cross.svg") no-repeat right center;
 }
 
+.activeMessage {
+  display: block;
+}
 
+.invalid-message {
+  display: none;
+  text-align: left;
+  transition: 0.4s;
+  color: var(--color6);
+  font-size: 0.7rem;
+  line-height: 0.7rem;
+  margin: 1rem 0 0 1rem;
+}
 
+.invalid-message-date {
+  margin-top: 1.125rem;
+}
 
+.success-message {
+  text-align: center;
+}
 
+/* Invalid Message End */
 
+.sign-up {
+  color: var(--color5);
+}
 
+@media (max-width: 60rem) {
+  .hero-text {
+    text-align: center;
+  }
 
+  .hero-text h1 {
+    margin: 0 0 2rem 0;
+  }
+
+  .sign-up-coming-soon {
+    display: grid;
+    justify-items: center;
+  }
+
+  .sign-up-form {
+    margin: 4rem auto 0 auto;
+    width: 100%;
+  }
+
+  .sign-up-coming-soon {
+    display: grid;
+    justify-items: start;
+  }
+
+  .sign-up-form {
+    margin: 0;
+  }
+}
+
+@media (min-width: 60rem) {
+  .hero {
+    grid-template-columns: min(50%, 33.75rem) auto;
+    min-height: 68vh;
+  }
+
+  .bg-side {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: auto;
+    z-index: -3;
+    width: 33.5%;
+    height: 100%;
+    background-color: var(--color4);
+    background-image: url("../assets/sign-up/bg-pattern-side.svg");
+    background-repeat: no-repeat;
+    background-position: left -30rem top -30rem;
+    background-size: auto 120%;
+  }
+}
