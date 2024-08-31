@@ -194,7 +194,43 @@ const handleAlphanumericKeyPress = (key) => {
         lastTypedChar = typedChar;
     };
 
+    const announceOption = (text) => {
+        elements.announcement.textContent = text;
+        elements.announcement.setAttribute('aria-live', 'assertive');
+
+    // setTimeout(() => {
+    //   elements.announcement.textContent = '';
+    //   elements.announcement.setAttribute('aria-live', 'off');
+    // }, 10000); // Announce and clear after 1 second (adjust as needed)
+    };
+    elements.button.addEventListener('keydown', (event) => {
+        // Tab functionality for keyboard users (works only forth...)
+        if (event.key = 'Tab') {
+            if (isDropdownOpen) {
+                toggleDropdown();
+            }
+            return
+             //return is needed so the handleKeyPress() doesn't run and prevent tab functionality
+        }
+        handleKeyPress(event);
+    });
+    document.addEventListener('click', handleDocumentInteraction);
+    // ========== End Custom select element =================
+
+
+    // ========== Form =================
+
+    const inputName = document.getElementById('name');
+    const inputEmail = document.getElementById('email');
+    const inputPhone = document.getElementById('phone');
+    const inputCompany = document.getElementById('company');
+    const inputSelectPack = document.querySelectorAll('#listbox li');
+
+    const successMessage = document.getElementById('success-message');
+
     
+
+
  }
 
 
