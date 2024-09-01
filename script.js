@@ -228,12 +228,122 @@ const handleAlphanumericKeyPress = (key) => {
 
     const successMessage = document.getElementById('success-message');
 
-    
+    // Prevent typing letters in number field
+    const oninputNumbers = event => {
+        event.target.value = event.target.value.replace(/[^0-9+]/g, '')
+    }
+    // Allow typing only letters in name field
+    const oninputLetters = event => {
+        event.target.value = event.target.value.replace(/[^a-zA-Z\s]/g, '')
+    }
 
+    const showSuccessMessage = () => {
+        successMessage.innerText = "Thank you for contacting us!";
+        inputName.value = '';
+        inputEmail.value = '';
+        inputPhone.value = '';
+        inputCompany.value = '';
+    }
 
+    // Validation
+    function validate(inputId, inputType) {
+        let n = inputId;   // get input id
+        let nInvalidMessage = inputId.parentNode.querySelector('.invalid-message'); 
+
+        function addError(errorText) {
+            nInvalidMessage.innerText = `${errorText}`;
+            nInvalidMessage.classList.add('activeMessage');
+            inputId.classList.add('input-invalid');
+        }
+        function removeError() {
+            nInvalidMessage.classList.remove('activeMessage');
+            inputId.classList.remove('input-invalid');
+        }
+
+        // Name Validation
+        if (inputType === 'name') {
+            if (inputId.value === '') {
+                addError(`${inputId.name} can't be blank`);
+                return false;
+            } else {
+                removeError();
+                return true;
+            }
+        }
+
+        // Email Validation
+        if (inputType === 'email') {
+            var rea = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*\.\w+$/;
+            var Email = inputEmail.value;
+            var x = rea.test(Email);
+
+            if (inputId.value === '') {
+                addError("Email can't be blank");
+                return false;
+            } else if (!x) {
+                addError('Incorrect email format');
+            } else {
+                removeError();
+                return true;
+            }
+        }
+
+        // Phone Validation
+        if (inputType === 'phone') {
+            let regex = /^[0-9]+$/;
+            let phoneNumber = inputId.value;
+
+            if (phoneNumber === '') {
+                addError("Can't be blank");
+                return false;
+            } else if (!phoneNumber.match(regex)) {
+                addError("Phone number must contain only numbers");
+                return false;
+            } else if (phoneNumber,length < 6) {
+                addError("Phone number must contain at least 6 characters");
+                return false;
+            } else {
+                removeError();
+                return true;
+            }
+        }
+
+        // Select Pack Validation
+        if (inputType === 'selectPack') {
+            let isSelected = false;
+            const array = Array.from(inputSelectPack);
+            array.forEach((item) => {
+                if (ariaSelected) {
+                    isSelected = true;
+                }
+            })
+            if (!isSelected) {
+                addError('Please select one pack option');
+                return false;
+            } else {
+                removeError();
+                return true;
+            }
+        }
  }
 
+document.getElementById('form').addEventListener('submit', function (e) {
+    e.preventDefault(); // Prevent the default form submission
 
+    successMessage.innerText = '';
+
+    let isValidName = validate(inputName, 'name');
+    let isValidEmail = validate(inputEmail, 'email');
+    // let isValidPhone = validate(inputPhone, 'phone');
+    // let isValidCompany = validate(inputCompany, 'company');
+    let isValidSelectPack = validate(listbox, 'selectPack');
+
+    // If all fields are valid, show success message
+    if (isValidName && isValidEmail && isValidSelectPack) {
+        showSuccessMessage();
+        // Submit userData(this)
+    }
+})
 
 
 
